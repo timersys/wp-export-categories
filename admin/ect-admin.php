@@ -84,11 +84,15 @@ class WP_Ect_Admin extends ECT_Admin_Base{
                 $this->plugin_slug = $this->options_name = $plugin->get_plugin_slug();
                 
                 $this->sections['general']                   = __( 'Export', $this->plugin_slug );
-
+				
+				$this->WPB_PLUGIN_NAME 		=   'WP Export Cats & Taxs';
+				$this->WPB_PLUGIN_VERSION 	=   ECT_VERSION;
+				$this->WPB_SLUG			 	=   ECT_VERSION;
+				$this->WPB_PLUGIN_URL		=   ECT_PLUGIN_URL;
 				
                 // Load admin style sheet and JavaScript.
-                add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ) );
-                add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
+                #add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ) );
+                #add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
 
                 // Add the options page and menu item.
                 add_action( 'admin_menu', array( $this, 'add_plugin_admin_menu' ) );
@@ -172,7 +176,7 @@ class WP_Ect_Admin extends ECT_Admin_Base{
 
                 $screen = get_current_screen();
                 if ( $this->plugin_screen_hook_suffix == $screen->id ) {
-                      #  wp_enqueue_script( $this->plugin_slug . '-admin-script', plugins_url( 'assets/js/admin.js', __FILE__ ), array( 'jquery' ), WP_Ect::VERSION );
+                        wp_enqueue_script( $this->plugin_slug . '-admin-script', plugins_url( 'assets/js/admin.js', __FILE__ ), array( 'jquery' ), WP_Ect::VERSION );
                 }
 
         }

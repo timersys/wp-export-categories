@@ -26,7 +26,21 @@ if ( ! defined( 'WPINC' ) ) {
 /*----------------------------------------------------------------------------*
  * Public-Facing Functionality
  *----------------------------------------------------------------------------*/
+// Plugin version
+if ( ! defined( 'ECT_VERSION' ) )
+        define( 'ECT_VERSION', 1.0 );
 
+// Plugin Folder Path
+if ( ! defined( 'ECT_PLUGIN_DIR' ) )
+        define( 'ECT_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+
+// Plugin Folder URL
+if ( ! defined( 'ECT_PLUGIN_URL' ) )
+        define( 'ECT_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+
+// Plugin Root File
+if ( ! defined( 'ECT_PLUGIN_FILE' ) )
+        define( 'ECT_PLUGIN_FILE', __FILE__ );
 /*
  * @TODO:
  *

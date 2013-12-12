@@ -1,15 +1,15 @@
 <?php
 // HOOKABLE: 
-	do_action( $this->WPB_PREFIX."_admin_ui_header_start" );
+	do_action( $this->plugin_slug."_admin_ui_header_start" );
 	
 	if ( isset( $_GET['settings-updated'] ) && $_GET['settings-updated'] == true )
-			echo '<div class="updated"><p>' . __( $this->WPB_PLUGIN_NAME.' options updated.', $this->WPB_PREFIX ) . '</p></div>';
+			echo '<div class="updated"><p>' . __( $this->WPB_PLUGIN_NAME.' options updated.', $this->plugin_slug ) . '</p></div>';
 ?>
 <div class="wsldiv wrap">
 	<h1>
 		<?php echo $this->WPB_PLUGIN_NAME; ?>
 	
-		<small><?php echo $this->WPB_VERSION ?></small>
+		<small><?php echo $this->WPB_PLUGIN_VERSION; ?></small>
 	
 	</h1>
 	<h2 class="nav-tab-wrapper">
@@ -28,6 +28,6 @@
 <div id="wsl_admin_tab_content" class="metabox-holder" style="min-width:1000px;">
 <?php
 	// HOOKABLE: 
-	do_action( $this->WPB_PREFIX."_admin_ui_header_end" );
+	do_action( $this->plugin_slug."_admin_ui_header_end" );
 ?>
 <div id="left-content"> 

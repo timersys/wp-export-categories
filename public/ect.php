@@ -30,7 +30,7 @@ class WP_Ect {
          *
          * @var     string
          */
-        const VERSION = '1.0.0';
+        const VERSION = ECT_VERSION;
         
 
         /**
@@ -104,30 +104,7 @@ class WP_Ect {
                 return $this->plugin_slug;
         }
 
-        /**
-         * Setup plugin constants
-         *
-         * @access private
-         * @since 1.0
-         * @return void
-         */
-        private function setup_constants() {
-                // Plugin version
-                if ( ! defined( 'ECT_VERSION' ) )
-                        define( 'ECT_VERSION', VERSION );
 
-                // Plugin Folder Path
-                if ( ! defined( 'ECT_PLUGIN_DIR' ) )
-                        define( 'ECT_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
-
-                // Plugin Folder URL
-                if ( ! defined( 'ECT_PLUGIN_URL' ) )
-                        define( 'ECT_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
-
-                // Plugin Root File
-                if ( ! defined( 'ECT_PLUGIN_FILE' ) )
-                        define( 'ECT_PLUGIN_FILE', __FILE__ );
-        }
         
         /**
          * Return an instance of this class.
@@ -141,7 +118,6 @@ class WP_Ect {
                 // If the single instance hasn't been set, set it now.
                 if ( null == self::$instance ) {
                         self::$instance = new self;
-                        self::$instance->setup_constants();
                         self::$instance->includes();
                 }
 
