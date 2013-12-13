@@ -25,14 +25,15 @@
 	
 	
 	$taxs = get_taxonomies( array('_builtin'=> false));
-	
-	$this->settings['taxs'] = array(
-		'section' => 'general',
-		'title'   => __( 'Taxonomies' , $this->plugin_slug),
-		'type'    => 'checkbox',
-		'std'     => $taxs,
-		'desc'    => __( 'Choose wich taxonomies you want to export', $this->plugin_slug),
-		'choices' => $taxs
-	);
-
+	if( !empty( $taxs))
+	{
+		$this->settings['taxs'] = array(
+			'section' => 'general',
+			'title'   => __( 'Taxonomies' , $this->plugin_slug),
+			'type'    => 'checkbox',
+			'std'     => $taxs,
+			'desc'    => __( 'Choose wich taxonomies you want to export', $this->plugin_slug),
+			'choices' => $taxs
+		);
+	}
 

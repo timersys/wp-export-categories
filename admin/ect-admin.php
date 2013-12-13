@@ -81,7 +81,8 @@ class WP_Ect_Admin extends ECT_Admin_Base{
                  */
                 $plugin = WP_Ect::get_instance();
                 //We are using slug also for options name
-                $this->plugin_slug = $this->options_name = $plugin->get_plugin_slug();
+                $this->plugin_slug  = $plugin->get_plugin_slug();
+                $this->options_name = $this->plugin_slug .'_settings';
                 
                 $this->sections['general']                   = __( 'Export', $this->plugin_slug );
 				

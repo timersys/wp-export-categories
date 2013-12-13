@@ -28,7 +28,7 @@ if ( ! defined( 'WPINC' ) ) {
  *----------------------------------------------------------------------------*/
 // Plugin version
 if ( ! defined( 'ECT_VERSION' ) )
-        define( 'ECT_VERSION', 1.0 );
+        define( 'ECT_VERSION', '1.0' );
 
 // Plugin Folder Path
 if ( ! defined( 'ECT_PLUGIN_DIR' ) )

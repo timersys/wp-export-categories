@@ -7,9 +7,9 @@
  * @since 1.0
  * @return array PREFIX settings
  */
-function prefix_get_settings() {
+function ect_get_settings() {
 
-        $settings = get_option( 'prefix_settings' );
+        $settings = get_option( 'ect_settings' );
 
-        return apply_filters( 'prefix_get_settings', $settings );
+        return apply_filters( 'ect_get_settings', $settings );
 }

@@ -265,7 +265,7 @@ class WP_Ect {
 					deactivate_plugins (basename (dirname (__FILE__)) . '/' . basename (__FILE__));
 					wp_die( __( "This plugin requires WordPress 3.0 or newer. Please update your WordPress installation to activate this plugin.", $this->WPB_PREFIX ) );
 				}
-				do_action( $this->plugin_slug.'_deactivate' );
+				do_action( 'ect_deactivate' );
         }
 
         /**
@@ -276,7 +276,7 @@ class WP_Ect {
         private static function single_deactivate() {
                 // @TODO: Define deactivation functionality here
                 
-                do_action( $this->plugin_slug.'_activate' );
+                do_action( 'ect_activate' );
         }
 
         /**

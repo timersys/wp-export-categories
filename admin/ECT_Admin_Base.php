@@ -65,10 +65,6 @@ class ECT_Admin_Base {
 		//register database options and prepare fields with settings API
         add_action( 'admin_init', array( &$this, 'register_settings' ),100 );
 		
-		if ( ! get_option( $this->options_name ))
-			$this->initialize_settings();
-		
-		
 		//load js and css 
 		add_action( 'init',array(&$this,'load_base_scripts' ),10 );	
 			
@@ -84,7 +80,8 @@ class ECT_Admin_Base {
 	public function get_settings() {
 		
 		require_once('wp-base/fields.php');
-		
+		if ( ! get_option( $this->options_name ))
+			$this->initialize_settings();
 	}
 
 	/**
@@ -117,6 +114,7 @@ class ECT_Admin_Base {
 	 * @since 1.0
 	 */
 	public function initialize_settings() {
+		
 		
 		$default_settings = array();
 		foreach ( $this->settings as $id => $setting ) {

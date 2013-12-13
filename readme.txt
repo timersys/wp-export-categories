@@ -4,7 +4,7 @@ Contributors: timersys
 Website: http://www.timersys.com
 Tags: export categories, export tags, export taxonomies, categories, taxonomies, tags, export, category export, tax export
 Stable tag: 1.0
-Tested on: 3.7.1
+Tested on: 3.8
 License: GPLv2 or later
 
 Export Categories, Tags and Taxonomies
