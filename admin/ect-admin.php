@@ -88,8 +88,10 @@ class WP_Ect_Admin extends ECT_Admin_Base{
 				
 				$this->WPB_PLUGIN_NAME 		=   'WP Export Cats & Taxs';
 				$this->WPB_PLUGIN_VERSION 	=   ECT_VERSION;
-				$this->WPB_SLUG			 	=   ECT_VERSION;
+				$this->WPB_SLUG			 	=   'wp-export-categories-taxonomies';
 				$this->WPB_PLUGIN_URL		=   ECT_PLUGIN_URL;
+				
+				$this->WPB_PREFIX			=   $this->plugin_slug;
 				
                 // Load admin style sheet and JavaScript.
                 #add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ) );
@@ -102,7 +104,7 @@ class WP_Ect_Admin extends ECT_Admin_Base{
                 $plugin_basename = plugin_basename( plugin_dir_path( __DIR__ ) . $this->plugin_slug . '.php' );
                 add_filter( 'plugin_action_links_' . $plugin_basename, array( $this, 'add_action_links' ) );
 				
-				add_action('init' , array( $this, 'handle_export'));
+				add_action('admin_init' , array( $this, 'handle_export'));
 				
 				parent::__construct();
 
@@ -248,15 +250,16 @@ class WP_Ect_Admin extends ECT_Admin_Base{
        function handle_export(){
        
 
-       		if( $_POST['option_page'] != $this->plugin_slug ) 
+       		if( !isset($_POST['option_page']) || $_POST['option_page'] != $this->plugin_slug.'_settings' ) 
        			return;
 
        		define( 'WXR_VERSION', '1.2' );
        		
+       		
        		/** Load WordPress export API */
 	   		require_once( plugin_dir_path( __FILE__ ) . '/includes/export.php' );
        		
-       		@$taxs = 	$_POST['ect']['taxs'];
+       		@$taxs = 	$_POST['ect_settings']['taxs'];
        		if( !empty($taxs) )
        		{
 	       		foreach ( $taxs as $k => $val )
@@ -266,13 +269,14 @@ class WP_Ect_Admin extends ECT_Admin_Base{
 				$custom_taxonomies = $taxs_a;
 				$custom_terms = (array) get_terms( $custom_taxonomies, array( 'get' => 'all' ) );
        		}
-       		if( !empty($_POST['ect']['tags']))
+       		
+       		if( !empty($_POST['ect_settings']['tags']))
        		{
        			
 				$tags = (array) get_tags( array( 'get' => 'all' ) );
        			
        		}
-	   		if( !empty($_POST['ect']['cats']) )
+	   		if( !empty($_POST['ect_settings']['cats']) )
        		{
 				$categories = (array) get_categories( array( 'get' => 'all' ) );
        		}
@@ -309,6 +313,8 @@ class WP_Ect_Admin extends ECT_Admin_Base{
 			}
 	
 			unset( $categories, $custom_taxonomies, $custom_terms );			
+			
+
 			
 			echo '<?xml version="1.0" encoding="' . get_bloginfo('charset') . "\" ?>\n";
 			

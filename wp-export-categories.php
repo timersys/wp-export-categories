@@ -11,7 +11,7 @@
  * Plugin Name:       Wp Export Categories & Taxonomies
  * Plugin URI:        http://wp.timersys.com
  * Description:       Simple tool to export categories and terms into other sites
- * Version:           1.0.0
+ * Version:           1.0.2
  * Author:            timersys
  * Author URI:        http://wp.timersys.com
  * Text Domain:       ect
@@ -28,7 +28,7 @@ if ( ! defined( 'WPINC' ) ) {
  *----------------------------------------------------------------------------*/
 // Plugin version
 if ( ! defined( 'ECT_VERSION' ) )
-        define( 'ECT_VERSION', '1.0' );
+        define( 'ECT_VERSION', '1.0.2' );
 
 // Plugin Folder Path
 if ( ! defined( 'ECT_PLUGIN_DIR' ) )

@@ -79,7 +79,7 @@ class WP_Ect {
                 // Load plugin text domain
                 add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
                 		
-				self::$_options = get_option($this->plugin_slug.'_settings',$this->_defaults);
+				self::$_options = get_option($this->plugin_slug.'_settings');
                 
 
                 // Activate plugin when new blog is added
@@ -132,10 +132,10 @@ class WP_Ect {
          * @return void
          */
         private function includes() {
-                global $plugin_prefix_settings;
+                global $ect_settings;
                 
-                require_once ECT_PLUGIN_DIR . 'includes/settings.php';
-                $plugin_prefix_settings = prefix_get_settings();
+                require_once ECT_PLUGIN_DIR . 'public/includes/settings.php';
+                $ect_settings = ect_get_settings();
         }        
         /**
          * Fired when the plugin is activated.

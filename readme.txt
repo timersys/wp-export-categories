@@ -3,8 +3,8 @@ Author: Damian Logghe
 Contributors: timersys
 Website: http://www.timersys.com
 Tags: export categories, export tags, export taxonomies, categories, taxonomies, tags, export, category export, tax export
-Stable tag: 1.0
-Tested on: 3.8
+Stable tag: 1.0.2
+Tested up to: 3.8
 License: GPLv2 or later
 
 Export Categories, Tags and Taxonomies
@@ -30,6 +30,15 @@ You're done!
 Just go to Tools-> WP Export Cats & Taxs
 
 == Changelog ==
+
+= 1.0.2 =
+
+* Changed the export action to a later hook to include plugins tax that were registered later
+* Cleaned a bit the code
+
+= 1.0.1 =
+
+* Fixed fatal error including settings. Sorry :)
 
 = 1.0 =
 * Plugin released, woohoo!
