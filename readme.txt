@@ -3,9 +3,11 @@ Author: Damian Logghe
 Contributors: timersys
 Website: http://www.timersys.com
 Tags: export categories, export tags, export taxonomies, categories, taxonomies, tags, export, category export, tax export
-Stable tag: 1.0.2
-Tested up to: 3.8
+Requires at least: 3.6
+Tested up to: 3.9.1
+Stable tag: 1.0.3
 License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Export Categories, Tags and Taxonomies
 
@@ -30,6 +32,11 @@ You're done!
 Just go to Tools-> WP Export Cats & Taxs
 
 == Changelog ==
+
+= 1.0.3 =
+
+* Cleaned a bit more of code
+* Fixed small bug with checkbox ID's
 
 = 1.0.2 =
 

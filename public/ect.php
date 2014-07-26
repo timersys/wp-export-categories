@@ -2,24 +2,18 @@
 /**
  * Plugin Name.
  *
- * @package   Plugin_Name
- * @author    Your Name <email@example.com>
+ * @package   Wp Export Categories
+ * @author    Damian Logghe <info@timersys.com>
  * @license   GPL-2.0+
  * @link      http://example.com
  * @copyright 2013 Your Name or Company Name
  */
 
 /**
- * Plugin class. This class should ideally be used to work with the
- * public-facing side of the WordPress site.
+ * Plugin public class
  *
- * If you're interested in introducing administrative or dashboard
- * functionality, then refer to `class-plugin-name-admin.php`
- *
- * @TODO: Rename this class to a proper name for your plugin.
- *
- * @package Plugin_Name
- * @author  Your Name <email@example.com>
+ * @package Wp Export Categories
+ * @author  Damian Logghe <info@timersys.com>
  */
 class WP_Ect {
 
@@ -34,10 +28,6 @@ class WP_Ect {
         
 
         /**
-         * @TODO - Rename "plugin-name" to the name your your plugin
-         *
-         * Unique identifier for your plugin.
-         *
          *
          * The variable name is used as the text domain when internationalizing strings
          * of text. Its value should match the Text Domain file header in the main
@@ -79,7 +69,7 @@ class WP_Ect {
                 // Load plugin text domain
                 add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
                 		
-				self::$_options = get_option($this->plugin_slug.'_settings');
+		self::$_options = get_option($this->plugin_slug.'_settings');
                 
 
                 // Activate plugin when new blog is added
@@ -292,48 +282,6 @@ class WP_Ect {
 
         }
 
-        /**
-         * Register and enqueue public-facing style sheet.
-         *
-         * @since    1.0.0
-         */
-        public function enqueue_styles() {
-                wp_enqueue_style( $this->plugin_slug . '-plugin-styles', plugins_url( 'assets/css/public.css', __FILE__ ), array(), self::VERSION );
-        }
-
-        /**
-         * Register and enqueues public-facing JavaScript files.
-         *
-         * @since    1.0.0
-         */
-        public function enqueue_scripts() {
-                wp_enqueue_script( $this->plugin_slug . '-plugin-script', plugins_url( 'assets/js/public.js', __FILE__ ), array( 'jquery' ), self::VERSION );
-        }
-
-        /**
-         * NOTE:  Actions are points in the execution of a page or process
-         *        lifecycle that WordPress fires.
-         *
-         *        Actions:    http://codex.wordpress.org/Plugin_API#Actions
-         *        Reference:  http://codex.wordpress.org/Plugin_API/Action_Reference
-         *
-         * @since    1.0.0
-         */
-        public function action_method_name() {
-                // @TODO: Define your action hook callback here
-        }
-
-        /**
-         * NOTE:  Filters are points of execution in which WordPress modifies data
-         *        before saving it or sending it to the browser.
-         *
-         *        Filters: http://codex.wordpress.org/Plugin_API#Filters
-         *        Reference:  http://codex.wordpress.org/Plugin_API/Filter_Reference
-         *
-         * @since    1.0.0
-         */
-        public function filter_method_name() {
-                // @TODO: Define your filter hook callback here
-        }
+       
 
 }

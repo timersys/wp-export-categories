@@ -214,7 +214,8 @@ class ECT_Admin_Base {
 					}
 					foreach( $choices as $val => $label)
 					{
-						echo '<input class="checkbox' . $field_class . '" type="checkbox" id="' . $id . '" name="'.$this->options_name.'[' . $id . '][' . $val . ']" value="1" ' . @checked( $options[$id][$val], 1, false ) . '  /> <label for="' . $id . '">' . $label . '</label><br>';
+						$i++;	
+						echo '<input class="checkbox' . $field_class . '" type="checkbox" id="' . $id . $i .'" name="'.$this->options_name.'[' . $id . '][' . $val . ']" value="1" ' . @checked( $options[$id][$val], 1, false ) . '  /> <label for="' . $id . '">' . $label . '</label><br>';
 					}
 				}
 				else	
